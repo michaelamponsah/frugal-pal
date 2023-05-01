@@ -1,2 +1,24 @@
-# frugal-pal
-FrugalPal - Your budgeting buddy! FrugalPal is an easy-to-use budgeting app that helps you keep track of your spending and achieve your financial goals. With FrugalPal, you can set budgets, track your expenses, and get insights into your spending habits - all in one place.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
