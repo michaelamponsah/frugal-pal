@@ -68,3 +68,8 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem "capybara"
+  gem 'factory_bot_rails'
+end
+
