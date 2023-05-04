@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  user1 = FactoryBot.create(:user)
-  category1 = FactoryBot.create(:group, user: user1)
-
   describe 'field validations' do
     it 'is invalid without a name' do
       user = FactoryBot.build(:user)
