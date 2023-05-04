@@ -1,1 +1,17 @@
-<h1>Home Page</h1>
+<section class="container d-flex flex-column justify-content-evenly align-items-center full-height">
+  <div class="p-2">
+    <h1 class="fw-bold clr-green h1">Frugal Pal<h1>
+  </div>
+  <div class="text-center">
+    <p><span class="fa-sharp fa-sack-dollar fa-solid logo"></span></p>
+    <p class="fs-5 lh-1 fw-semibold text-muted mt-4">
+      With FrugalPal, you can set budgets, and track your expenses.
+    </p>
+    <p class="fs-6 lh-1 text-muted mt-4">
+      Budget smarter, spend better with Frugal
+    </p>
+  </div>
+  <div class="mt-4 mb-4 d-flex flex-column justify-content-end">
+    <%= link_to "Get Started", new_user_session_path, class: "btn btn-md bg-green text-light" %>
+  </div>
+</section>
