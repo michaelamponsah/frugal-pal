@@ -74,5 +74,5 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
-  gem 'database_cleaner'
+  gem 'database_cleaner-active_record'
 end

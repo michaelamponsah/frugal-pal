@@ -1,16 +1,38 @@
 require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
-  user1 = FactoryBot.create(:user)
-  expense1 = FactoryBot.create(:expense, user: user1)
+  describe "field validations" do
+    it "is invalid without a name" do 
+      user = FactoryBot.build(:user)
+      expense = FactoryBot.build(:expense, name: nil, user: user)
+      expect(expense).not_to be_valid
+    end
 
-  it 'should have an associated user' do
-    expect(expense1.user_id).to eq(user1.id)
+    it "is invalid without an amount" do 
+      user = FactoryBot.build(:user)
+      expense = FactoryBot.build(:expense, amount: nil, user: user)
+      expect(expense).not_to be_valid
+    end
+
+    it "is valid with a name, amount and a user" do
+      user = FactoryBot.build(:user)
+      expense = FactoryBot.build(:expense, user: user)
+      expect(expense).to be_valid
+    end
+
+    it "has the correct values entered" do 
+      user = FactoryBot.build(:user)
+      expense = FactoryBot.build(:expense, user: user)
+      expect(expense.name).to include('Pay water bill for December 2022')
+      expect(expense.amount).to eq(85.00)
+    end
   end
 
-  it 'should have a title and an expense amount' do
-    expect(expense1.name).to include('Pay water bill for December 2022')
-    expect(expense1.amount).to eq(85.00)
-    expect(expense1.amount).not_to eq(0)
+  describe "associations" do
+    it 'should have an associated user' do
+      user = FactoryBot.create(:user)
+      expense = FactoryBot.create(:expense, user: user)
+      expect(expense.user_id).to eq(user.id)
+    end  
   end
 end

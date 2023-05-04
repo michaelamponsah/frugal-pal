@@ -1,22 +1,46 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  user1 = FactoryBot.create(:user)
-  user2 = FactoryBot.create(:user, name: nil)
+  describe "validations" do
+    it 'is valid with valid attributes' do
+      user = FactoryBot.build(:user)
+      expect(user).to be_valid
+    end
 
-  FactoryBot.create_list(:expense, 3, user: user1)
-  FactoryBot.create_list(:group, 3, user: user1)
+    it 'is invalid without a name' do
+      user = FactoryBot.build(:user, name: nil)
+      expect(user).not_to be_valid
+    end
 
-  it 'validates the presence of a name' do
-    expect(user1.name).to eq('John Doe')
-    expect(user2.name).not_to be_truthy
+    it 'is invalid without an email' do
+      user = FactoryBot.build(:user, email: nil)
+      expect(user).not_to be_valid
+    end
+
+    it 'is invalid without a password' do
+      user = FactoryBot.build(:user, password: nil)
+      expect(user).not_to be_valid
+    end
+
+    it 'is invalid without a password more than six characters' do
+      user = FactoryBot.build(:user, password: "pass")
+      expect(user).not_to be_valid
+    end
   end
 
-  it 'returns the correct number of user expenses' do
-    expect(user1.user_expenses).not_to be_empty
+  describe " #expenses()" do
+    it 'returns the correct number of user expenses created' do
+      user = FactoryBot.create(:user)
+      expenses = FactoryBot.create_list(:expense, 3, user: user)
+      expect(user.user_expenses.count).to eq(3)
+    end
   end
 
-  it 'returns the correct number of categories/groups created by user' do
-    expect(user1.expense_categories).not_to be_empty
+  describe " #categories()" do
+    it 'returns the correct number of categories/groups created by user' do
+      user = FactoryBot.create(:user)
+      categories = FactoryBot.create_list(:group, 3, user: user)
+      expect(user.expense_categories.count).to eq(3)
+    end
   end
 end
