@@ -1,18 +1,38 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  user1 = FactoryBot.create(:user)
-  category1 = FactoryBot.create(:group, user: user1)
+  describe 'field validations' do
+    it 'is invalid without a name' do
+      user = FactoryBot.build(:user)
+      category = FactoryBot.build(:group, name: nil, user:)
+      expect(category).not_to be_valid
+    end
 
-  it 'should include an author' do
-    expect(category1.user_id).to eq(user1.id)
+    it 'is invalid without an icon' do
+      user = FactoryBot.build(:user)
+      category = FactoryBot.build(:group, icon: nil, user:)
+      expect(category).not_to be_valid
+    end
+
+    it 'is valid with valid data' do
+      user = FactoryBot.build(:user)
+      category = FactoryBot.build(:group, user:)
+      expect(category).to be_valid
+    end
+
+    it 'should have the correct data' do
+      user = FactoryBot.build(:user)
+      category = FactoryBot.build(:group, user:)
+      expect(category.name).to include('Utility Bills')
+      expect(category.icon).to include('https://www.icons/1')
+    end
   end
 
-  it 'should have a title' do
-    expect(category1.name).to include('Utility Bills')
-  end
-
-  it 'should have an icon' do
-    expect(category1.icon).to include('https://www.icons/1')
+  describe 'associations' do
+    it 'should have the associated user/author' do
+      user = FactoryBot.create(:user)
+      category = FactoryBot.create(:group, user:)
+      expect(category.user_id).to eq(user.id)
+    end
   end
 end
