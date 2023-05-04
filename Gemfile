@@ -42,6 +42,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Use devise for Authentication and Authorization
+gem 'devise'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -59,6 +62,7 @@ group :development do
   gem 'web-console'
   # Use rubocop static code analyzer
   gem 'rubocop', '>= 1.0', '< 2.0'
+  gem 'letter_opener'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
