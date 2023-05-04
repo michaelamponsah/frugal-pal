@@ -61,8 +61,8 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
   # Use rubocop static code analyzer
-  gem 'rubocop', '>= 1.0', '< 2.0'
   gem 'letter_opener'
+  gem 'rubocop', '>= 1.0', '< 2.0'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -73,6 +73,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'factory_bot_rails'
   gem 'database_cleaner-active_record'
+  gem 'factory_bot_rails'
 end

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :groups
   has_many :expenses
 
-  validates :name, presence: true, length: {minimum: 2, maximum: 50}
+  validates :name, presence: true, length: { minimum: 2, maximum: 50 }
 
   def user_expenses
     Expense.where(user_id: id)
