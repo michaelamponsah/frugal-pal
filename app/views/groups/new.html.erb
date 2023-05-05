@@ -5,13 +5,14 @@
   <div class="container">
     <%= form_with model: @group, url: groups_path do |form| %>
       <div class="mt-2">
-         <%= 
-          form.text_field :name,
+         <%= form.label :name, "Category Name" %>
+         <%= form.text_field :name,
           placeholder: "Enter category name. Eg. Entertainment",
           class: "form-control"
          %>
       </div>
       <div class="mt-2">
+        <%= form.label :icon, "Category Icon" %>
         <%= form.select :icon, 
             options_for_select([
             ["<i class='fa-regular fa-tv-music'></i> Entertainment".html_safe, "fa-regular fa-tv-music"],
