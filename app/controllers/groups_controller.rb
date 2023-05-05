@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  before_action :get_group, only: [:show]
 
   def index
     @user_categories = User.expense_categories(current_user.id)
@@ -7,9 +8,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    group_id = params[:id].to_i
-    print(group_id)
-    @category_expenses = Expense.where(user_id: current_user.id).joins(:groups).where(groups: { id: group_id })
+    get_group
+    @category_expenses = Expense.where(user_id: current_user.id).joins(:groups).where(groups: { id: @group.id })
 
     render
   end
@@ -33,5 +33,9 @@ class GroupsController < ApplicationController
 
   def req_params
     params.require(:group).permit(:name, :icon)
+  end
+
+  def get_group
+    @group = Group.find(params[:id])
   end
 end

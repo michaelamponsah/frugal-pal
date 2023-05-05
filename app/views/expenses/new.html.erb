@@ -6,7 +6,7 @@
   <div class="d-flex justify-content-end">
   <%= link_to "Cancel", request.referer, class: "btn btn-sm btn-secondary text-white" %>
   </div>
-    <%= form_with model: @expense, url: expenses_path do |form| %>
+    <%= form_with model: @expense, url: group_expenses_path do |form| %>
       <div class="mt-2">
          <%= form.label :name, "Expense Name" %>
          <%= form.text_field :name,
