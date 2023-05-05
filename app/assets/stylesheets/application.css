@@ -21,11 +21,6 @@
   box-sizing: border-box;
 }
 
-.bg-green:hover {
-  background-color: #5fb523;
-  opacity: 0.9;
-}
-
 .clr-green {
   color: #5fb523;
 }
@@ -34,8 +29,12 @@
   background-color: #5fb523;
 }
 
+.bg-green:hover {
+  background-color: #5fb523;
+  opacity: 0.9;
+}
+
 .full-height {
-  /* background-color: #3778c2 !important; */
   width: 100vw;
   height: 100vh;
 }
