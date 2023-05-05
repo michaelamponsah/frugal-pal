@@ -30,7 +30,7 @@ Group.create([
   },
   {
     name: "Rent",
-    icon: "fa-solid fa-house-buildin",
+    icon: "fa-solid fa-house-building",
     user_id: 1
   },
   {
