@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :groups, only: [:index, :new, :destroy, :show, :create]
+  resources :expenses, only: [:new, :create]
 end
