@@ -7,6 +7,10 @@ class GroupsController < ApplicationController
   end
 
   def show
+    group_id = params[:id].to_i
+    print(group_id)
+    @category_expenses = Expense.where(user_id: current_user.id).joins(:groups).where(groups: { id: group_id })
+
     render
   end
 end

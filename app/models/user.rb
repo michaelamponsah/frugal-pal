@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2, maximum: 50 }
 
-  def user_expenses
+  def self.user_expenses(id)
     Expense.where(user_id: id)
   end
 
