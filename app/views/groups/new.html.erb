@@ -3,18 +3,31 @@
   <h2 class="h5 text-center py-4">NEW CATEGORY</h2>
   </div>
   <div class="container">
-    <%= form_with model: @category, url: groups_path do |form| %>
-      <%= 
-        form.text_field :name,
-        placeholder: "Enter category name. Eg. Entertainment",
-        class: "form-control"
-      %>
-      <%= 
-        form.text_field :icon,
-        placeholder: "Choose a category icon",
-        class: "form-control"
-      %>
-      <%= form.submit "Create Category", class: "btn btn-primary" %>
+    <%= form_with model: @group, url: groups_path do |form| %>
+      <div class="mt-2">
+         <%= 
+          form.text_field :name,
+          placeholder: "Enter category name. Eg. Entertainment",
+          class: "form-control"
+         %>
+      </div>
+      <div class="mt-2">
+        <%= form.select :icon, 
+            options_for_select([
+            ["<i class='fa-regular fa-tv-music'></i> Entertainment".html_safe, "fa-regular fa-tv-music"],
+            ["<i class='fa fa-music'></i> Music".html_safe, "fa-music"],
+            ["<i class='fa fa-heart'></i> Heart".html_safe, "fa-heart"]
+          ]), 
+          { prompt: "Choose a category icon" },
+          class: "form-control", 
+          id: "icon-select" 
+        %>
+      </div>  
+      <div class="d-grid">
+        <%= form.submit "Create Category", 
+           class: "btn bg-green text-white mt-4"
+        %>
+      </div>  
     <% end %>
   </div>
 </section>
