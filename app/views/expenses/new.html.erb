@@ -1,0 +1,30 @@
+<section>
+  <div class="bg-primary text-white">
+  <h2 class="h5 text-center py-4">NEW EXPENSE</h2>
+  </div>
+  <div class="container">
+  <div class="d-flex justify-content-end">
+  <%= link_to "Cancel", request.referer, class: "btn btn-sm btn-secondary text-white" %>
+  </div>
+    <%= form_with model: @expense, url: expenses_path do |form| %>
+      <div class="mt-2">
+         <%= form.label :name, "Expense Name" %>
+         <%= form.text_field :name,
+          placeholder: "Enter expense name. Eg. Netflix subscription for April",
+          class: "form-control"
+         %>
+      </div>
+      <div class="mt-2">
+        <%= form.label :icon, "Epense amount" %>
+        <%= form.number_field :amount, 
+          class: "form-control"
+        %>
+      </div>  
+      <div class="d-grid">
+        <%= form.submit "Create Expense", 
+           class: "btn bg-green text-white mt-4"
+        %>
+      </div>  
+    <% end %>
+  </div>
+</section>
