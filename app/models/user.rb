@@ -12,7 +12,7 @@ class User < ApplicationRecord
     Expense.where(user_id: id)
   end
 
-  def expense_categories
+  def self.expense_categories(id)
     Group.where(user_id: id)
   end
 end
