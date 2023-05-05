@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
-  def  create
+  def create
     @new_category = Group.new(req_params)
     @new_category.user_id = current_user.id
 
