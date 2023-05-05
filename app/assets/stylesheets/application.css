@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 * {
@@ -28,12 +29,20 @@
   background-color: #5fb523;
 }
 
+.bg-green:hover {
+  background-color: #5fb523;
+  opacity: 0.9;
+}
+
 .full-height {
-  /* background-color: #3778c2 !important; */
   width: 100vw;
   height: 100vh;
 }
 
 .logo {
   font-size: 4.5rem;
+}
+
+.icon {
+  font-size: 1.8rem;
 }

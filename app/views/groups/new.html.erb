@@ -1,0 +1,37 @@
+<section>
+  <div class="bg-primary text-white">
+  <h2 class="h5 text-center py-4">NEW CATEGORY</h2>
+  </div>
+  <div class="container">
+  <div class="d-flex justify-content-end">
+  <%= link_to "Cancel", groups_path, class: "btn btn-sm btn-secondary text-white" %>
+  </div>
+    <%= form_with model: @group, url: groups_path do |form| %>
+      <div class="mt-2">
+         <%= form.label :name, "Category Name" %>
+         <%= form.text_field :name,
+          placeholder: "Enter category name. Eg. Entertainment",
+          class: "form-control"
+         %>
+      </div>
+      <div class="mt-2">
+        <%= form.label :icon, "Category Icon" %>
+        <%= form.select :icon, 
+            options_for_select([
+            ["<i class='fa-regular fa-tv-music'></i> Entertainment".html_safe, "fa-regular fa-tv-music"],
+            ["<i class='fa fa-music'></i> Music".html_safe, "fa-music"],
+            ["<i class='fa fa-heart'></i> Heart".html_safe, "fa-heart"]
+          ]), 
+          { prompt: "Choose a category icon" },
+          class: "form-control", 
+          id: "icon-select" 
+        %>
+      </div>  
+      <div class="d-grid">
+        <%= form.submit "Create Category", 
+           class: "btn bg-green text-white mt-4"
+        %>
+      </div>  
+    <% end %>
+  </div>
+</section>

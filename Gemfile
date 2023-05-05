@@ -45,6 +45,9 @@ gem 'bootsnap', require: false
 # Use devise for Authentication and Authorization
 gem 'devise'
 
+# Use font-awesome icons
+gem 'font-awesome-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
