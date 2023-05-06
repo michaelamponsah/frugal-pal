@@ -1,15 +1,20 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  before_action :retrieve_group, only: [:show]
 
   def index
     @user_categories = User.expense_categories(current_user.id)
+    @category_expense_sums = get_category_expense_sums(current_user.id)
+
     render
   end
 
   def show
-    group_id = params[:id].to_i
-    print(group_id)
-    @category_expenses = Expense.where(user_id: current_user.id).joins(:groups).where(groups: { id: group_id })
+    @group_name = @group.name
+
+    @category_expenses = Expense.where(user_id: current_user.id).joins(:groups).where(groups: { id: @group.id })
+    @total_expense = @category_expenses.sum(:amount)
+    @formatted_total_expense = format('%.2f', @total_expense)
 
     render
   end
@@ -33,5 +38,17 @@ class GroupsController < ApplicationController
 
   def req_params
     params.require(:group).permit(:name, :icon)
+  end
+
+  def retrieve_group
+    @group = Group.find(params[:id])
+  end
+
+  def get_category_expense_sums(user_id)
+    expense_sums = {}
+    User.expense_categories(user_id).each do |category|
+      expense_sums[category.name] = category.expenses.sum(:amount)
+    end
+    expense_sums
   end
 end

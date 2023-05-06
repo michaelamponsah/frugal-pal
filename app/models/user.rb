@@ -13,6 +13,6 @@ class User < ApplicationRecord
   end
 
   def self.expense_categories(id)
-    Group.where(user_id: id)
+    Group.includes(:expenses).where(user_id: id)
   end
 end
