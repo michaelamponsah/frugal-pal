@@ -7,6 +7,9 @@
   <span class="fw-bold">$<%= @formatted_total_expense %></span>
  </div>
 <div class="container">
+  <div class="d-flex justify-content-end mt-4 mb-2">
+    <%= link_to "Go back", groups_path, class: "btn btn-sm btn-secondary text-white" %>
+  </div>
    <ul class="list-group">
     <%  @category_expenses.each do |expense| %>
       <li class="d-flex border border-light-subtle align-items-start bg-white shadow-sm mt-2 list-group-item">
