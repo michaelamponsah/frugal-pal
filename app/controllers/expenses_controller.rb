@@ -10,11 +10,7 @@ class ExpensesController < ApplicationController
     name = expense_params[:name]
     amount = expense_params[:amount]
 
-    @expense = @group.expenses.create({
-      name: name,
-      amount: amount,
-      user_id: current_user.id
-    })
+    @expense = @group.expenses.create({ name:, amount:, user_id: current_user.id })
 
     if @expense.save
       redirect_to @group, notice: 'Expense was successfully created.'
