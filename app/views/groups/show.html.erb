@@ -1,7 +1,6 @@
 <section>
- <div class="fixed-top bg-primary text-white">
-  <h2 class="h5 text-center py-4">TRANSACTIONS</h2>
- </div>
+<% content_for :page_title, "TRANSACTIONS" %>
+
  <div class="d-flex justify-content-between bg-white px-4 py-2 fixed-top" style="margin-top: 5rem;">
   <span class="text-muted"><%= @group_name %></span>
   <span class="fw-bold">Total: $<%= @formatted_total_expense %></span>

@@ -1,7 +1,6 @@
 <section>
-  <div class="fixed-top bg-primary text-white">
-  <h2 class="h5 text-center py-4">EXPENSE CATEGORIES</h2>
-  </div>
+ <% content_for :page_title, "EXPENSE CATEGORIES" %>
+
   <div class="container" style="margin-top: 5rem; margin-bottom: 10rem;">
     <ul class="list-group">
       <%  @user_categories.each do |category| %>
