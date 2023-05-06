@@ -1,7 +1,7 @@
 <section>
  <% content_for :page_title, "EXPENSE CATEGORIES" %>
 
-  <div class="container" style="margin-top: 5rem; margin-bottom: 10rem;">
+  <div class="container" style="margin-top: 8rem; margin-bottom: 10rem;">
     <ul class="list-group">
       <%  @user_categories.each do |category| %>
         <%= link_to group_path(category), class: "d-flex border border-light-subtle align-items-center p-2 bg-white shadow-sm mt-2 list-group-item" do %>
