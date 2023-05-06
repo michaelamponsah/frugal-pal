@@ -1,6 +1,6 @@
 <section class="container d-flex flex-column justify-content-evenly align-items-center full-height">
   <div class="p-2">
-    <h1 class="fw-bold clr-green h1">Frugal Pal<h1>
+    <h1 class="fw-bold text-muted h1">Frugal Pal<h1>
   </div>
   <div class="text-center">
     <p><span class="fa-sharp fa-sack-dollar fa-solid logo"></span></p>
@@ -11,7 +11,9 @@
       Budget smarter, spend better with Frugal
     </p>
   </div>
-  <div class="mt-4 mb-4 d-flex flex-column justify-content-end">
-    <%= link_to "Get Started", new_user_session_path, class: "btn btn-md bg-green text-light" %>
+
+  <div class="mt-4 mb-4 d-flex flex-column justify-content-end w-100">
+   <%= link_to "LOG IN", new_user_session_path, class: "btn text-white bg-primary w-100 mb-4" %>
+  <%= link_to "SIGN UP", new_user_registration_path, class: "btn w-100" %>
   </div>
 </section>

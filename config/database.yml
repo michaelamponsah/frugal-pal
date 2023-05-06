@@ -7,6 +7,7 @@ default: &default
 
 development:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: frugal_pal_development
   username: postgres
   password: admin123
