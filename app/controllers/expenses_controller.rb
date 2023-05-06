@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :set_group
+  before_action :set_group, :authenticate_user!
 
   def new
     @expense = @group.expenses.build
