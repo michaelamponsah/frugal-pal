@@ -12,9 +12,12 @@
   </head>
 
   <body class="bg-body-secondary">
-    <nav class="fixed-top bg-primary text-white">
-      <h2 class="h5 text-center py-4"><%= yield(:page_title) %></h2>
-    </nav>
+    <% if user_signed_in? %>
+      <nav class="fixed-top bg-primary text-white">
+        <h2 class="h5 text-center py-4"><%= yield(:page_title) %></h2>
+      </nav>
+    <% end %>
+    
 
     <div class="container">
       <% if flash[:notice] %>
