@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     it 'returns the correct number of user expenses created' do
       user = FactoryBot.create(:user)
       FactoryBot.create_list(:expense, 3, user:)
-      expect(user.user_expenses.count).to eq(3)
+      expect(User.user_expenses(user.id).count).to eq(3)
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
     it 'returns the correct number of categories/groups created by user' do
       user = FactoryBot.create(:user)
       FactoryBot.create_list(:group, 3, user:)
-      expect(user.expense_categories.count).to eq(3)
+      expect(User.expense_categories(user.id).count).to eq(3)
     end
   end
 end
