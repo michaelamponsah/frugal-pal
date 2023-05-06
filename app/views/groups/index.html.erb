@@ -5,9 +5,13 @@
     <ul class="list-group">
       <%  @user_categories.each do |category| %>
         <%= link_to group_path(category), class: "d-flex border border-light-subtle align-items-center p-2 bg-white shadow-sm mt-2 list-group-item" do %>
-          <div class="col-8 d-flex align-items-center">
-            <span class="<%= category.icon %> icon"></span>
-            <span class="ms-4"><%= category.name %></span>
+          <div class="col-8 d-flex justify-content-start align-items-center gap-2">
+            <span class="<%= category.icon %> icon w-25"></span>
+
+            <div class="d-flex flex-column w-75">
+              <span class=""><%= category.name %></span>
+              <p class="mt-2"><%= category.created_at.strftime('%b %d, %Y') %></p>
+            </div>
           </div>
           <div class="col-4 ms-2">
            $<%=  sprintf('%.2f', @category_expense_sums[category.name]) %>

@@ -7,10 +7,23 @@
  * 
  */
 
-let category_icon = document.getElementById('icon-select');
-let icon_preview = document.querySelector('[data-icon-preview]');
+// let category_icon = document.getElementById('icon-select');
+// let icon_preview = document.querySelector('[data-icon-preview]');
 
-category_icon.addEventListener('change', (e) => {
-  icon_preview.classList.value = '';
-  icon_preview.classList.add(e.target.value.replace(/\s/g, ''));
-})
+// category_icon.addEventListener('change', (e) => {
+//   icon_preview.classList.value = '';
+//   icon_preview.classList.add(e.target.value.replace(/\s/g, ''));
+// })
+
+// let burger_icon = document.querySelector(['data-burger']);
+// let logout_btn_wrapper = document.querySelector(['data-btn-wrapper'])
+
+// burger_icon.addEventListener('click', (e) => {
+//   console.log('click')
+//   if (logout_btn_wrapper.style.display === "block") {
+//     logout_btn_wrapper.style.display = "none";
+//   } else {
+//     logout_btn_wrapper.style.display = "block";
+//   }
+// })
+

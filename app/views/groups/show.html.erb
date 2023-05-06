@@ -12,8 +12,11 @@
    <ul class="list-group">
     <%  @category_expenses.each do |expense| %>
       <li class="d-flex border border-light-subtle align-items-start bg-white shadow-sm mt-2 list-group-item">
-        <div class="col-8">
-          <p><%= expense.name %></p>
+        <div class="col-8 d-flex justify-content-start align-items-center gap-2">
+            <div class="d-flex flex-column w-75">
+              <p><%= expense.name %></p>
+              <p class="mt-2"><%= expense.created_at.strftime('%b %d, %Y') %></p>
+            </div>
         </div>
         <div class="text-end col-4 ms-2">
           <p class="fw-semibold">$<%= sprintf('%.2f', expense.amount) %></p>
