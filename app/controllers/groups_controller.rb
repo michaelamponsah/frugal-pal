@@ -8,7 +8,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    get_group
     @category_expenses = Expense.where(user_id: current_user.id).joins(:groups).where(groups: { id: @group.id })
 
     render

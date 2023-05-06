@@ -6,9 +6,16 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    @expense = @group.expenses.new(req_params)
-    @expense.user_id = current_user.id
+    expense_params = params.require(:expense).permit(:name, :amount)
+    name = expense_params[:name]
+    amount = expense_params[:amount]
 
+    @expense = @group.expenses.create({
+      name: name,
+      amount: amount,
+      user_id: current_user.id
+     })
+   
     if @expense.save
       redirect_to @group, notice: 'Expense was successfully created.'
     else
@@ -18,10 +25,6 @@ class ExpensesController < ApplicationController
   end
 
   private
-
-  def req_params
-    params.require(:expense).permit(:name, :amount)
-  end
 
   def set_group
     @group = Group.find(params[:group_id])
