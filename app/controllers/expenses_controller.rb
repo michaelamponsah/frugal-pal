@@ -22,11 +22,9 @@ class ExpensesController < ApplicationController
       render :new
     end
 
-  end
-
-  private
-
-  def set_group
+ew
+    end
+set_group
     @group = Group.find(params[:group_id])
   end
 end

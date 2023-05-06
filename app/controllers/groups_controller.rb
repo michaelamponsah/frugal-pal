@@ -8,7 +8,11 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @group_name = @group.name
+  
     @category_expenses = Expense.where(user_id: current_user.id).joins(:groups).where(groups: { id: @group.id })
+    @total_expense = @category_expenses.sum(:amount)
+    @formatted_total_expense = sprintf('%.2f', @total_expense)
 
     render
   end
