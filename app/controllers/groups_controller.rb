@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_group, only: [:show]
+  before_action :retrieve_group, only: [:show]
 
   def index
     @user_categories = User.expense_categories(current_user.id)
@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :icon)
   end
 
-  def get_group
+  def retrieve_group
     @group = Group.find(params[:id])
   end
 
