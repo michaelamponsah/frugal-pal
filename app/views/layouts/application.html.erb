@@ -15,6 +15,9 @@
     <% if user_signed_in? %>
       <nav class="fixed-top bg-primary text-white">
         <h2 class="h5 text-center py-4"><%= yield(:page_title) %></h2>
+        <div class="container d-flex justify-self-right">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
+        </div>
       </nav>
     <% end %>
     
