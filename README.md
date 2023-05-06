@@ -64,8 +64,8 @@ FrugalPal - Your budgeting buddy! FrugalPal is an easy-to-use budgeting app that
 
 <!-- LIVE DEMO -->
 ## 🚀 Live Demo <a name="live-demo"></a>
-[Frugal Pal](https://Frugal Pal.onrender.com)
-[Frugal Pal Video Demo](https://www.loom.com/share/2775cf0fe39140baa24c70dfffa6f477)
+[Frugal Pal](https://frugal-pal.onrender.com/)
+[Frugal Pal Video Demo](https://www.loom.com/share/5afadb13054b4de296cdea112e11a6c2)
 
 
 <h2  align="center">APP UI<h2>
