@@ -1,0 +1,29 @@
+<section>
+ <% content_for :page_title, "NEW EXPENSE" %>
+
+  <div class="container" style="margin-top: 8rem;">
+  <div class="d-flex justify-content-end">
+  <%= link_to "Cancel", request.referer, class: "btn btn-sm btn-secondary text-white" %>
+  </div>
+    <%= form_with model: @expense, url: group_expenses_path do |form| %>
+      <div class="mt-2">
+         <%= form.label :name, "Expense Name" %>
+         <%= form.text_field :name,
+          placeholder: "Enter expense name. Eg. Netflix subscription for April",
+          class: "form-control"
+         %>
+      </div>
+      <div class="mt-2">
+        <%= form.label :icon, "Epense amount" %>
+        <%= form.number_field :amount, 
+          class: "form-control"
+        %>
+      </div>  
+      <div class="d-grid">
+        <%= form.submit "Create Expense", 
+           class: "btn bg-green text-white mt-4"
+        %>
+      </div>  
+    <% end %>
+  </div>
+</section>

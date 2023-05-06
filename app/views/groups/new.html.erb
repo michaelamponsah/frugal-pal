@@ -1,0 +1,43 @@
+<section>
+  <% content_for :page_title, "NEW CATEGORY" %>
+
+  <div class="container" style="margin-top: 8rem;">
+  <div class="d-flex justify-content-end">
+  <%= link_to "Cancel", groups_path, class: "btn btn-sm btn-secondary text-white" %>
+  </div>
+    <%= form_with model: @group, url: groups_path do |form| %>
+      <div class="mt-2">
+         <%= form.label :name, "Category Name" %>
+         <%= form.text_field :name,
+          placeholder: "Enter category name. Eg. Entertainment",
+          class: "form-control"
+         %>
+      </div>
+      <div class="mt-2">
+        <%= form.label :icon, "Category Icon" %><span class="" data-icon-preview></span>
+        <%= form.select :icon, 
+            options_for_select([
+            ["Rent/Mortgage", "fa-solid fa-house"],
+            ["Utilities", "fa-solid fa-bolt"],
+            ["Food/groceries", "fa-solid fa-carrot"],
+            ["Transportation", "fa-solid fa-car"],
+            ["Insurance", "fa-solid fa-house-crack"],
+            ["Entertainment", "fa-solid fa-icons"],
+            ["Clothing", "fa-solid fa-shirt"],
+            ["Personal care", "fa-solid fa-house-medical"],
+            ["Travel", "fa-solid fa-plane"],
+            ["Gifts/charitable donations", "fa-solid fa-hand-holding-dollar"]
+          ]), 
+          { prompt: "Choose a category icon" },
+          class: "form-control", 
+          id: "icon-select" 
+        %>
+      </div>  
+      <div class="d-grid">
+        <%= form.submit "Create Category", 
+           class: "btn bg-green text-white mt-4"
+        %>
+      </div>  
+    <% end %>
+  </div>
+</section>

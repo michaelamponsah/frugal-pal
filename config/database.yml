@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: frugal_pal_development
+  username: postgres
+  password: admin123
+  # host: localhost
+  # port: 5432
+
+test:
+  <<: *default
+  database: frugal_pal_test
+  username: postgres
+  password: admin123
+  host: 127.0.0.1
+
+production:
+  <<: *default
+  database: frugal_pal_production
+  username: frugal_pal
+  password: <%= ENV["FRUGAL_PAL_DATABASE_PASSWORD"] %>
