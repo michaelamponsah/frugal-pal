@@ -14,17 +14,18 @@ class ExpensesController < ApplicationController
       name: name,
       amount: amount,
       user_id: current_user.id
-     })
-   
+    })
+
     if @expense.save
       redirect_to @group, notice: 'Expense was successfully created.'
     else
       render :new
     end
+  end
 
-ew
-    end
-set_group
+  private
+
+  def set_group
     @group = Group.find(params[:group_id])
   end
 end

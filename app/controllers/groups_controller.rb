@@ -4,6 +4,8 @@ class GroupsController < ApplicationController
 
   def index
     @user_categories = User.expense_categories(current_user.id)
+    @category_expense_sums = get_category_expense_sums(current_user.id)
+
     render
   end
 
@@ -40,5 +42,13 @@ class GroupsController < ApplicationController
 
   def get_group
     @group = Group.find(params[:id])
+  end
+
+  def get_category_expense_sums(user_id)
+    expense_sums = {}
+    User.expense_categories(user_id).each do |category|
+      expense_sums[category.name] = category.expenses.sum(:amount)
+    end
+    expense_sums
   end
 end

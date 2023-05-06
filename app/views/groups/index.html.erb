@@ -11,7 +11,7 @@
             <span class="ms-4"><%= category.name %></span>
           </div>
           <div class="col-4 ms-2">
-            $18.00
+           $<%=  sprintf('%.2f', @category_expense_sums[category.name]) %>
           </div>
         <% end %>
       <% end %>
