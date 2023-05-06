@@ -27,26 +27,26 @@ User.create([
 group_1 = Group.create(
   {
     name: "Utility Bills",
-    icon: "fa-solid fa-plug",
+    icon: "fa-solid fa-bolt",
     user_id: 1
   }
 )
 
 group_2 = Group.create( {
   name: "Rent & Mortgage",
-  icon: "fa-solid fa-house-building",
+  icon: "fa-solid fa-house",
   user_id: 1
 })
 
 group_3 = Group.create({
   name: "Groceries",
-  icon: "fa-solid fa-cart-shopping",
+  icon: "fa-solid fa-carrot",
   user_id: 2
 })
 
 group_4 = Group.create({
   name: "Entertainment",
-  icon: "fa-solid fa-tv-music",
+  icon: "fa-solid fa-icons",
   user_id: 2
 })
 
