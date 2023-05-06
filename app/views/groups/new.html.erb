@@ -15,12 +15,19 @@
          %>
       </div>
       <div class="mt-2">
-        <%= form.label :icon, "Category Icon" %>
+        <%= form.label :icon, "Category Icon" %><span class="" data-icon-preview></span>
         <%= form.select :icon, 
             options_for_select([
-            ["<i class='fa-regular fa-tv-music'></i> Entertainment".html_safe, "fa-regular fa-tv-music"],
-            ["<i class='fa fa-music'></i> Music".html_safe, "fa-music"],
-            ["<i class='fa fa-heart'></i> Heart".html_safe, "fa-heart"]
+            ["Rent/Mortgage", "fa-solid fa-house"],
+            ["Utilities", "fa-solid fa-bolt"],
+            ["Food/groceries", "fa-solid fa-carrot"],
+            ["Transportation", "fa-solid fa-car"],
+            ["Insurance", "fa-solid fa-house-crack"],
+            ["Entertainment", "fa-solid fa-icons"],
+            ["Clothing", "fa-solid fa-shirt"],
+            ["Personal care", "fa-solid fa-house-medical"],
+            ["Travel", "fa-solid fa-plane"],
+            ["Gifts/charitable donations", "fa-solid fa-hand-holding-dollar"]
           ]), 
           { prompt: "Choose a category icon" },
           class: "form-control", 
